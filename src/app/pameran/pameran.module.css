@@ -1,0 +1,144 @@
+.page {
+  min-height: 100vh;
+  padding-top: 12rem;
+  padding-bottom: 10rem;
+}
+
+.header {
+  text-align: center;
+  padding: 0 2rem;
+  margin-bottom: 8rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  perspective: 800px;
+  margin-bottom: 2rem;
+}
+
+.titleCharWrap {
+  display: inline-block;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.titleChar {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3rem, 8vw, 8rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #2B2B2B);
+  line-height: 1;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(0.9375rem, 1.3vw, 1.125rem);
+  color: var(--color-stone, #5A5A5A);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.8;
+  will-change: transform, opacity, filter;
+}
+
+/* ── Grid ────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 4rem;
+}
+
+.gridItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
+  cursor: none;
+}
+
+.gridItemTall {
+  transform: translateY(4rem);
+}
+
+.itemImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  will-change: clip-path;
+}
+
+.gridItemTall .itemImage {
+  aspect-ratio: 3 / 4;
+}
+
+.img {
+  object-fit: cover;
+  transition: transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.gridItem:hover .img {
+  transform: scale(1.06);
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  will-change: transform, opacity;
+}
+
+.itemIndex {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.5625rem;
+  letter-spacing: 0.3em;
+  color: var(--color-smoke, #C0C0C0);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #2B2B2B);
+}
+
+.itemArtist {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 0.875rem;
+  color: var(--color-ash, #8A8A8A);
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+
+  .gridItemTall {
+    transform: none;
+  }
+
+  .page {
+    padding-top: 8rem;
+  }
+}

@@ -1,0 +1,31 @@
+.toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: var(--z-nav, 50);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: none;
+  opacity: 0.35;
+  transition: opacity 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.toggle:hover {
+  opacity: 1;
+}
+
+.toggle.active {
+  opacity: 0.7;
+}
+
+.icon {
+  color: var(--color-charcoal, #2B2B2B);
+}
+
+@media (max-width: 768px) {
+  .toggle {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}

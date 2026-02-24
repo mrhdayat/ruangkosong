@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="atmo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0E0E0"/>
+      <stop offset="40%" stop-color="#C0C0C0"/>
+      <stop offset="70%" stop-color="#8A8A8A"/>
+      <stop offset="100%" stop-color="#4A4A4A"/>
+    </linearGradient>
+  </defs>
+  <rect fill="url(#atmo)" width="1200" height="800"/>
+  <line x1="0" y1="520" x2="1200" y2="480" stroke="#999" stroke-width="0.3" opacity="0.5"/>
+</svg>

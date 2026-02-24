@@ -1,0 +1,180 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 25vh 2rem 15vh;
+  text-align: center;
+  overflow: hidden;
+}
+
+.yearText {
+  position: absolute;
+  left: -3vw;
+  bottom: 10vh;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(8rem, 20vw, 25rem);
+  color: var(--color-charcoal, #2B2B2B);
+  opacity: 0;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preTitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--color-ash, #8A8A8A);
+  margin-bottom: 3rem;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+.titleWrap {
+  overflow: hidden;
+  perspective: 800px;
+  will-change: transform;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3rem, 10vw, 12vw);
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #2B2B2B);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.word {
+  display: inline-flex;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.titleSpace {
+  display: inline-block;
+  width: 0.15em;
+}
+
+.decoLine {
+  width: 80px;
+  height: 1px;
+  background: var(--color-charcoal, #2B2B2B);
+  opacity: 0.2;
+  margin: 3rem 0;
+  transform-origin: center;
+  will-change: transform;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(0.9375rem, 1.5vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--color-stone, #5A5A5A);
+  letter-spacing: 0.02em;
+  max-width: 600px;
+  opacity: 0;
+  will-change: transform, opacity, filter;
+}
+
+/* ── Scroll Indicator ────────────────────────────────────────── */
+.scrollIndicator {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scrollText {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.5625rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-smoke, #C0C0C0);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: var(--color-charcoal, #2B2B2B);
+  opacity: 0.2;
+  animation: scrollPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  51% {
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero {
+    padding: 20vh 1.5rem 12vh;
+  }
+
+  .yearText {
+    font-size: clamp(5rem, 25vw, 10rem);
+    left: -2vw;
+  }
+
+  .title {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .titleSpace {
+    display: none;
+  }
+}

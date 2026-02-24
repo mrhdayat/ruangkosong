@@ -1,26 +1,278 @@
-@import "tailwindcss";
+/* ================================================================
+   MUSEUM RUANG KOSONG — Design Token Architecture
+   Aesthetic: Gallery Minimal / Contemplative Silence
+   Philosophy: Keheningan yang Berbicara
+   ================================================================ */
 
+/* ── CSS Custom Properties (Design Tokens) ───────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color — Monochromatic Gallery Palette */
+  --color-gallery: #F8F8F8;
+  --color-charcoal: #2B2B2B;
+  --color-mist: #E8E8E8;
+  --color-smoke: #C0C0C0;
+  --color-ash: #8A8A8A;
+  --color-stone: #5A5A5A;
+
+  /* Typography */
+  --font-display: var(--font-space-grotesk), 'Helvetica Neue', sans-serif;
+  --font-body: var(--font-cormorant), 'Georgia', serif;
+
+  /* Spacing — Extreme Whitespace System */
+  --space-xs: 0.5rem;
+  /* 8px */
+  --space-sm: 1rem;
+  /* 16px */
+  --space-md: 2rem;
+  /* 32px */
+  --space-lg: 4rem;
+  /* 64px */
+  --space-xl: 8rem;
+  /* 128px */
+  --space-2xl: 12rem;
+  /* 192px */
+  --space-section: 20vh;
+  /* Extreme section padding */
+  --space-section-lg: 30vh;
+
+  /* Timing */
+  --duration-instant: 150ms;
+  --duration-fast: 400ms;
+  --duration-base: 600ms;
+  --duration-slow: 1200ms;
+  --duration-reveal: 1500ms;
+  --duration-image: 2000ms;
+
+  /* Easing — Calm, deliberate motion only */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-underline: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Z-Index Scale */
+  --z-base: 0;
+  --z-artwork: 1;
+  --z-progress: 40;
+  --z-nav: 50;
+  --z-modal: 100;
+  --z-cursor: 9999;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ── Base Reset ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Lenis handles smooth scrolling */
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-gallery);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── Selection ───────────────────────────────────────────────── */
+::selection {
+  background: rgba(43, 43, 43, 0.15);
+  color: var(--color-charcoal);
+}
+
+/* ── Typography Scale ────────────────────────────────────────── */
+
+/* Monumental Display — 8vw to 12vw */
+.text-monument {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3.5rem, 10vw, 12vw);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+}
+
+/* Section Title */
+.text-section {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+}
+
+/* Subtitle — Serif Italic */
+.text-subtitle {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.125rem, 2vw, 1.75rem);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--color-stone);
+}
+
+/* Body Text */
+.text-body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  line-height: 1.8;
+  color: var(--color-stone);
+}
+
+/* Caption — Small uppercase */
+.text-caption {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+/* Artwork Meta */
+.text-meta {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ash);
+}
+
+/* ── Link — Slide Underline (Left to Right, 0.6s) ────────────── */
+.link-museum {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.8125rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  text-decoration: none;
+  cursor: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+.link-museum::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-charcoal);
+  transition: width var(--duration-base) var(--ease-underline);
+}
+
+.link-museum:hover {
+  color: var(--color-stone);
+}
+
+.link-museum:hover::after {
+  width: 100%;
+}
+
+/* ── Scroll Snap Container ───────────────────────────────────── */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: var(--space-section) var(--space-lg);
+}
+
+/* ── Keyframe Animations ─────────────────────────────────────── */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scrollLine {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  50% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  51% {
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+}
+
+/* ── Focus Styles (Accessibility) ────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--color-charcoal);
+  outline-offset: 4px;
+}
+
+/* ── Scrollbar — Minimal ─────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+/* ── Touch Devices — Show default cursor ─────────────────────── */
+@media (hover: none) and (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
 }

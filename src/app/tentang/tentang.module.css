@@ -1,0 +1,171 @@
+.page {
+  min-height: 100vh;
+  padding-top: 12rem;
+  padding-bottom: 12rem;
+}
+
+.header {
+  text-align: center;
+  padding: 0 2rem;
+  margin-bottom: 10rem;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  perspective: 800px;
+  margin-bottom: 2.5rem;
+}
+
+.titleCharWrap {
+  display: inline-block;
+  overflow: hidden;
+  perspective: 600px;
+}
+
+.titleChar {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3rem, 8vw, 8rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #2B2B2B);
+  line-height: 1;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+.decoLine {
+  width: 60px;
+  height: 1px;
+  background: var(--color-charcoal, #2B2B2B);
+  opacity: 0.2;
+  margin: 0 auto;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* ── Content ─────────────────────────────────────────────────── */
+.content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.block {
+  margin-bottom: 8rem;
+  will-change: transform, opacity, filter;
+}
+
+.blockLabel {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.625rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-smoke, #C0C0C0);
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.blockTitle {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-charcoal, #2B2B2B);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+
+.blockBody {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 2;
+  color: var(--color-stone, #5A5A5A);
+}
+
+/* ── Quote ────────────────────────────────────────────────────── */
+.quote {
+  margin: 6rem 0 8rem;
+  padding: 4rem 0;
+  border-top: 1px solid rgba(43, 43, 43, 0.06);
+  border-bottom: 1px solid rgba(43, 43, 43, 0.06);
+}
+
+.quoteText {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.8;
+  color: var(--color-charcoal, #2B2B2B);
+  margin-bottom: 1.5rem;
+}
+
+.quoteWord {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.quoteAuthor {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ash, #8A8A8A);
+}
+
+/* ── Stats ────────────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 8rem;
+  padding: 3rem 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.statNumber {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--color-charcoal, #2B2B2B);
+  line-height: 1;
+}
+
+.statLabel {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ash, #8A8A8A);
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding-top: 8rem;
+  }
+
+  .header {
+    margin-bottom: 6rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .block {
+    margin-bottom: 5rem;
+  }
+}

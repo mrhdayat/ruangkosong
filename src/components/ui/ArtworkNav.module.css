@@ -1,0 +1,46 @@
+.nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-progress, 40);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.button {
+  background: none;
+  border: none;
+  color: var(--color-charcoal, #2B2B2B);
+  cursor: none;
+  padding: 0.5rem;
+  opacity: 0.4;
+  transition: opacity 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.button:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.button:disabled {
+  opacity: 0.1;
+  cursor: default;
+}
+
+.counter {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  color: var(--color-ash, #8A8A8A);
+  min-width: 60px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    bottom: 1.5rem;
+    gap: 1.5rem;
+  }
+}

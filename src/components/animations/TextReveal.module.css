@@ -1,0 +1,8 @@
+.text {
+  display: inline;
+  overflow: hidden;
+}
+
+.char {
+  will-change: transform, opacity;
+}
